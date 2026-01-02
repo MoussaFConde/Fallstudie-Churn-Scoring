@@ -1,4 +1,4 @@
-## 
+# KI-Prompt-Dokumentation
 
 ## 1. Grundstrukur der Fallstudie
 *Prompt:* <br>
