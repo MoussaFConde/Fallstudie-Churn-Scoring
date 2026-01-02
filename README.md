@@ -9,7 +9,7 @@ Entwicklung eines datengetriebenen Scoring-Systems zur Identifikation von Kunden
 - Reduktion der Kundenabwanderung durch proaktive Maßnahmen
 
 ## C. Methodik
-### 1) Datenbasis
+### 1) Synthestische Datenbasis
 - Vertragsdaten: Branche, Unternehmensgröße, Laufzeit, Grundgebühr
 - Supportdaten: Technische Störungen, Entstörungsdauer, Beschwerdeanrufe
 - Nutzungsdaten: Bandbreitennutzung, Peaks
