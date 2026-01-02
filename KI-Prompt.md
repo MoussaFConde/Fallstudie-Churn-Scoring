@@ -86,3 +86,16 @@ Bitte implementiere das Feature‑Engineering:
 - Berechne und füge als neue Spalten hinzu: verbleibende_Monate, Stoerungen_pro_100_MA, Stoerungen_letzte_2M (Proxy 2/6), Unterauslastung_Flag, Peak_Verhaeltnis, Stoerungen_pro_Peak, kosten_pro_mitarbeiter, kosteneffizienz.
 - Füge zu jeder neuen Spalte eine einzeilige Kommentar‑Erklärung, warum die Kennzahl nützlich ist.
 - Gib mir die head() als display() zwischendurch immer als Check aus
+
+*Folgepromt*:
+Erstelle mir bitte zusätzlich eine Grafik, die die Verteilung des Churn Scores anhand der Anzahl der Kunden in einem Histogramm darstellt. Verwende dafür die zuvor definierten 1&1-Primärfarbe sowie die Highlight-Farbe.
+
+*Folgepromt*:
+Danke dir. Lass uns bitte auch stärker auf die Branchenanalyse eingehen, da ich mit diesem Teil aktuell noch nicht zufrieden bin. Ziel ist es, deutlich mehr statistische Einblicke in die einzelnen Branchen in Bezug auf den Churn Score zu erhalten.
+
+Konkret wünsche ich mir folgende Erweiterungen:
+1) Tabelle (Display): Eine Übersicht aller Branchen mit zentralen statistischen Kennzahlen zum Churn Score, z. B. Mittelwert, Median, Standardabweichung, Minimum und Maximum.
+2) Tabelle (Display): Eine Darstellung der Risikoverteilung je Branche auf Basis der zuvor definierten Churn-Kategorien (z. B. niedrig, mittel, hoch). Hier sollte ersichtlich sein, wie sich die Kunden pro Branche auf die einzelnen Risikoklassen verteilen.
+3) Grafik: Ein gestapeltes Balkendiagramm, das die Risikoverteilung je Branche visualisiert. Jeder Balken repräsentiert eine Branche und ist anteilig nach den definierten Risikokategorien aufgeteilt, sodass Unterschiede zwischen den Branchen auf einen Blick erkennbar sind.
+
+## 4. Analyse
