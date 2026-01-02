@@ -98,4 +98,68 @@ Konkret wünsche ich mir folgende Erweiterungen:
 2) Tabelle (Display): Eine Darstellung der Risikoverteilung je Branche auf Basis der zuvor definierten Churn-Kategorien (z. B. niedrig, mittel, hoch). Hier sollte ersichtlich sein, wie sich die Kunden pro Branche auf die einzelnen Risikoklassen verteilen.
 3) Grafik: Ein gestapeltes Balkendiagramm, das die Risikoverteilung je Branche visualisiert. Jeder Balken repräsentiert eine Branche und ist anteilig nach den definierten Risikokategorien aufgeteilt, sodass Unterschiede zwischen den Branchen auf einen Blick erkennbar sind.
 
-## 4. Analyse
+## 4. Visualiserung
+*Prompt*: <br>
+Nun möchte ich unsere Erkenntnisse aus der Analyse gezielt visualisieren. Ich stelle mir dafür ein kompaktes Dashboard in Form einer 2×3-Grafik vor, das die zentralen Erkenntnisse zum Churn-Verhalten übersichtlich zusammenfasst. Begib dich IN die Lage eines Top Data Scientists - Welche Visuals würdest du hierfür erstellen?
+
+*Folgepromt*: <br>
+Okay, dann baue mir dafür ein kompaktes Dashboard in Form einer 2×3-Grafik auf, das die zentralen Ergebnisse der Churn-Risiko-Analyse für B2B-Glasfaser-Kunden zusammenfasst.
+
+Die enthaltenen Visualisierungen und ihre jeweiligen Erkenntnisse sind wie folgt zu interpretieren:
+1. Verteilung der Churn-Scores (Histogramm)
+Das Histogramm zeigt die Verteilung der Churn Scores über alle Kunden hinweg mit durchschnittliche Churn Score als markierte Linie. Benutze für die Balken bitte die Primärfarbe und den Strich bitte in unserer Highlight-Farbe
+
+2. Verteilung nach Risikokategorie (Balkendiagramm)
+Diese Grafik stellt die Anzahl der Kunden je definierter Risikokategorie dar. Es soll in unsere 4 Risikokategorien kategorisiert werden, wobei jede dieser Risikokategorien einen Balken ausmacht. Nimm dafür wieder die unsere defininierten Farben für success, risiko etc.
+
+3. Horizontales Balkendiagramm – Durchschnittlicher Churn Score nach Branche
+– Y-Achse: Branchen
+– X-Achse: durchschnittlicher Churn Score
+– Sortierung nach Score-Höhe
+
+4. Scatterplot – Churn Score vs. Unternehmensgröße
+– X-Achse: Unternehmensgröße
+– Y-Achse: Churn Score
+– Farbskala basierend auf monatlichem Umsatz
+– Transparente Punkte zur besseren Überlagerung
+
+5. Scatterplot – Churn Score vs. verbleibende Vertragslaufzeit
+– X-Achse: verbleibende Monate
+– Y-Achse: Churn Score
+– Farbskala entsprechend der Anzahl von Störungen
+
+6. Scatterplot – Churn Score vs. Bandbreitennutzung
+– X-Achse: Bandbreitennutzung in Prozent
+– Y-Achse: Churn Score
+– Farbige Kodierung nach Risikokategorie (Niedrig, Mittel, Hoch, Kritisch)
+
+Achte auf ein einheitliches Layout, klare Achsenbeschriftungen, gut lesbare Titel sowie eine kompakte, managementtaugliche Darstellung aller Visualisierungen.
+
+Insgesamt bietet das Dashboard einen konsistenten Überblick über
+(a) die Verteilung des Churn-Risikos,
+(b) branchenspezifische Unterschiede sowie
+(c) zentrale operative und vertragliche Einflussfaktoren
+und bildet damit eine fundierte Grundlage für gezielte Retention-Maßnahmen.
+
+## 5. Handlungsmaßnahmen
+*Prompt*: <br>
+Nun möchte ich den nächsten Schritt in Richtung konkreter Handlungsmaßnahmen gehen.
+Identifiziere zunächst die 5 Kunden mit dem höchsten Churn Score und gib diese strukturiert aus.
+Für jeden dieser Kunden sollen zusätzlich folgende Informationen angezeigt werden:
+– Churn Score
+– Zugeordnete Risikokategorie (basierend auf den zuvor definierten Schwellenwerten)
+– Monatlicher Umsatz
+– Verbleibende Vertragslaufzeit (in Monaten)
+– Hauptrisikofaktoren, die maßgeblich zum erhöhten Churn Score beitragen
+
+Die Hauptrisikofaktoren sollen dabei auf zuvor festzulegenden Kriterien basieren (z. B. kurze Restlaufzeit, hohe Anzahl an Störungen, geringe Bandbreitennutzung, niedrige Nutzungshäufigkeit). Lege transparent dar, welche Faktoren als Risikotreiber definiert wurden und welche davon je Kunde zutreffen.
+Stelle die Ergebnisse übersichtlich in Tabellenform dar, sodass die Liste direkt als Grundlage für priorisierte Retention- und Vertriebsmaßnahmen genutzt werden kann.
+
+*Folgeprompt*: <br>
+Welche zentralen Handlungsmaßnahmen würdest du für Kunden mit erhöhtem Churn-Risiko empfehlen, um eine Abwanderung proaktiv zu verhindern?
+
+Begründe jede Maßnahme datenbasiert anhand typischer Churn-Treiber (z. B. kurze Restlaufzeit, Serviceprobleme, geringe Nutzung) und beschreibe kurz,
+– welches Ziel die Maßnahme verfolgt,
+– für welche Risikokunden sie besonders geeignet ist und
+– welchen erwarteten Einfluss sie auf die Reduktion des Churn-Risikos hat.
+Die Maßnahmen sollen praxisnah, skalierbar und operativ umsetzbar sein und sich direkt aus den zuvor analysierten Churn-Erkenntnissen ableiten lassen
