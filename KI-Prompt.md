@@ -43,19 +43,19 @@ Erzeuge synthetische, aber realistische Testdaten für eine Fallstudie zum Churn
 
 Aufgabe:
 Erzeuge drei verknüpfte CSV‑Dateien mit jeweils 1500 Zeilen (IDs CUST0001..CUST1500), UTF‑8 kodiert. Erzeuge nur die exakt aufgeführten Spalten (keine zusätzlichen Felder).
-1) contract_data.csv — Spalten:
+1) contract_data.csv  Spalten:
 - ID (String, mit PK z.B. CUST0001..CUST1500)
 - Branche (kategorisch; z. B. IT, Handel, Finanzen, Öffentlicher Sektor etc.)
 - Unternehmensgröße (int, Anzahl Mitarbeiter und realistische Verteilung der Firmen: viele kleine, einige mittlere, wenige große)
 - Vertragsbeginn (Datum YYYY-MM-DD; verteilt über die letzten 48 Monate)
 - Laufzeit (int; nur 24 oder 36 MonaTe)
 - monatliche Grundgebühr (int; korreliert positiv mit Unternehmensgröße und Branche)
-2) support_data.csv — Spalten:
+2) support_data.csv  Spalten:
 - ID (String) -> Die gleichen werte wie bei 1.
 -  Anzahl technischer Störungen in den letzten 6 Monaten (int)
 - Durchschnittliche Dauuer der Entstörung (float, Stunden)
 - Anzahl der Beschwerdeanrufe (int)
-3) usage_data.csv — Spalten:
+3) usage_data.csv  Spalten:
 - ID (String) Die gleichen werte wie bei 1.
 - durchschnittliche_Bandbreitennutzung_pct (0–100, float)
 - Anzahl der Peaks (int)
@@ -70,3 +70,19 @@ Output (erwartet):
 - Am Ende eine kurze Statistik (head + describe + fehlende Werte pro Datei).
 
 Wenn du von dieser Spezifikation abweichen musst, melde die Abweichung kurz und begründe sie.
+
+## 3. Analyse
+*Prompt*: <br>
+Im nächsten Schritt erfolgt die Analyse: Hier erzeugen wir aus den drei CSV-Dateien einige leicht verständliche Kennzahlen. Dazu zählen die verbleibenden Monate bis Vertragsende, Störungsraten relativ zur Firmengröße, ein kurzer Indikator für Störungen in den letzten 2 Monaten, ein Unterauslastungs-Flag und einfache Verhältnisse wie Peaks vs. Durchschnittsnutzung, Störungen pro Peak und wirtschaftliche Kennzahlen wie Kosten pro Mitarbeiter. Zu jeder neuen Spalte notieren wir kurz, warum sie nützlich ist, und schauen uns ein Beispiel an.
+Die 2-Monats-Zahl ist nicht direkt vorliegend, daher erklären wir die Annahme offen: Standardmäßig nehmen wir 2/6 der 6-Monats-Störungen als Proxy. Um zu prüfen, wie sensibel das ist, rechnen wir das Signal zusätzlich mit einigen alternativen Faktoren und vergleichen jeweils die Top 5-Kunden. Daraus ergibt sich ein Overlap-Prozent, das zeigt, ob die Prioritäten stabil sind oder ob bestimmte Kunden nur wegen der Annahme hochrutschen.
+Anschließend normieren wir alle Kennzahlen auf eine einheitliche Skala (0–100), fassen verwandte Signale zu vier verständlichen Komponenten zusammen (Störungen, Vertragsende, Nutzung, Kundenzufriedenheit) und berechnen daraus einen Churn-Score als gewichtete Summe. Die Gewichte sind konfigurierbar. Vor der Auswertung prüfen wir, dass der Score zwischen 0 und 100 liegt und zeigen die Verteilung.
+Zum Schluss prüfen wir die Robustheit: Ein Histogramm visualisiert die Score-Verteilung und wir testen mindestens ein alternatives Gewichtsszenario. Wir vergleichen Top-Listen, berechnen die Rangkorrelation und fassen kurz zusammen, ob die Priorisierung stabil ist oder ob bestimmte Kunden als "unsicher" markiert werden sollten. Alle Annahmen (Proxy-Faktor, Unterauslastungs-Schwelle, Gewichte) werden klar dokumentiert.
+
+*Folgepromt:*
+Danke - Hier aber noch einige Anmerkungen, weil du Kennzahlen nicht berechnen sollst, diese aber an als eigene Spalten im df berechnen sollst. Hintergrund ist, dass ich später mit diesen weiterrechnen muss, um den Churn-Score gewichtet ermitteln kann:
+Bitte implementiere das Feature‑Engineering:
+
+- Lade die drei CSVs und merge sie per ID.
+- Berechne und füge als neue Spalten hinzu: verbleibende_Monate, Stoerungen_pro_100_MA, Stoerungen_letzte_2M (Proxy 2/6), Unterauslastung_Flag, Peak_Verhaeltnis, Stoerungen_pro_Peak, kosten_pro_mitarbeiter, kosteneffizienz.
+- Füge zu jeder neuen Spalte eine einzeilige Kommentar‑Erklärung, warum die Kennzahl nützlich ist.
+- Gib mir die head() als display() zwischendurch immer als Check aus
