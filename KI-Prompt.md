@@ -2,9 +2,7 @@
 
 ## 1. Grundstrukur der Fallstudie
 *Prompt:* <br>
-Schreib mir das ein bisschen schöner:
-
-Folgende Ausgangslage habe ich für meine Fallstudie:
+Im Folgende findest du die Ausgangslage für meine Fallstudie:
 
 "
 Case Study: Churn Scoring (ca. 3h Vorbereitungszeit)
